@@ -1,5 +1,3 @@
 require "simple_playing_cards/version"
-
-module SimplePlayingCards
-  # Your code goes here...
-end
+require "simple_playing_cards/deck"
+require "simple_playing_cards/card"

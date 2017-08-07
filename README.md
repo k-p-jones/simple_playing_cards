@@ -1,8 +1,6 @@
 # SimplePlayingCards
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/simple_playing_cards`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A simple gem for generating a deck of playing cards.
 
 ## Installation
 
@@ -22,7 +20,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To create a new deck of cards:
+
+`deck = SimplePlayingCards::Deck.new`
+
+Shuffle the deck:
+
+`deck.shuffle`
+
+Deal some cards:
+
+`hand = deck.deal(2)`
+
+Get the card details:
+
+```
+card = hand.first
+card.rank #=> "A"
+card.suit #=> "Spades"
+card.name #=> "A of Spades"
+```
 
 ## Development
 

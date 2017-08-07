@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ken Jones"]
 
   spec.summary       = %q{Simple playing cards!}
-  spec.description   = %q{Simple playing cards!}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.description   = %q{A simple Gem for creating a deck of playing cards.}
+  spec.homepage      = "https://github.com/k-p-jones/simple_playing_cards"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

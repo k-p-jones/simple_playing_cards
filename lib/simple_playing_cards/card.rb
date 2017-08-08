@@ -1,12 +1,13 @@
 module SimplePlayingCards
   class Card
+    include Comparable
     RANKS = %w[A 2 3 4 5 6 7 8 9 10 J K Q]
     SUITS = %w[Spades Hearts Diamonds Clubs]
     
     attr_reader :rank, :suit
     attr_accessor :value, :options
     
-    def initialize(rank, suit, options)
+    def initialize(rank, suit, options = {})
       validate_inputs(rank, suit)
       @options = options
       @rank = rank
@@ -16,6 +17,16 @@ module SimplePlayingCards
 
     def name
       "#{rank} of #{suit}"
+    end
+
+    def <=> (card)
+      if self.value < card.value
+        -1
+      elsif self.value > card.value
+        1
+      else
+        0
+      end  
     end
 
     private

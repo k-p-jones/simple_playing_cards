@@ -1,8 +1,9 @@
 module SimplePlayingCards
   class Deck
-    attr_accessor :cards
-    def initialize
+    attr_accessor :cards, :options
+    def initialize(options = {})
       @cards = []
+      @options = options
       build_deck
     end
 
@@ -19,7 +20,7 @@ module SimplePlayingCards
     def build_deck
       Card::SUITS.each do |suit|
         Card::RANKS.each do |rank|
-          cards << Card.new(rank, suit)
+          cards << Card.new(rank, suit, options)
         end
       end
     end

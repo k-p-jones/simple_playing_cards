@@ -4,10 +4,14 @@ module SimplePlayingCards
     SUITS = %w[Spades Hearts Diamonds Clubs]
     
     attr_reader :rank, :suit
-    def initialize(rank, suit)
+    attr_accessor :value, :options
+    
+    def initialize(rank, suit, options)
       validate_inputs(rank, suit)
+      @options = options
       @rank = rank
       @suit = suit
+      @value = assign_value
     end
 
     def name
@@ -15,6 +19,23 @@ module SimplePlayingCards
     end
 
     private
+
+    def assign_value
+      if rank.to_i > 0
+        rank.to_i
+      else
+        case rank
+        when 'J'
+          11
+        when 'Q'
+          12
+        when 'K'
+          13  
+        when 'A'
+          options['aces_high'] ? 14 : 1
+        end
+      end  
+    end
 
     def validate_inputs(rank, suit)
       errors = []

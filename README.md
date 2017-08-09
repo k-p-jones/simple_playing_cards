@@ -34,17 +34,39 @@ Deal some cards:
 
 Get the card details:
 
-```
+```ruby
 card = hand.first
 card.rank #=> "A"
 card.suit #=> "Spades"
 card.name #=> "A of Spades"
 ```
 
-## ToDo
+Every card has a numeric value and comparisons can be made based on that.
 
-Add numeric value to `Card`. 
-Add functionality for comparing `Card`s
+```ruby
+card_a = SimplePlayingCards::Card.new('10', 'Hearts')
+card_b = SimplePlayingCards::Card.new('8', 'Spades')
+
+card_a < card_b #=> false
+card_a > card_b #=> true
+card_b == card_a #=> false
+```
+
+Aces default to a numerical value of `1`. In order to set aces
+to high you can pass an options hash to the `Deck` or `Card`.
+
+```ruby
+options = { 'aces_high' => true }
+deck = SimplePlayingCards.deck.new(options)
+```
+
+## Options Hash
+
+The `Deck` and `Card` objects can be initialized with an options hash.
+```ruby
+# Available options
+{ 'aces_high' => true } # sets the value of all aces to 14
+```
 
 ## Development
 

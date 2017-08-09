@@ -1,7 +1,7 @@
 module SimplePlayingCards
   class Card
     include Comparable
-    RANKS = %w[A 2 3 4 5 6 7 8 9 10 J K Q]
+    RANKS = %w[Ace 2 3 4 5 6 7 8 9 10 Jack King Queen]
     SUITS = %w[Spades Hearts Diamonds Clubs]
     
     attr_reader :rank, :suit
@@ -36,13 +36,13 @@ module SimplePlayingCards
         rank.to_i
       else
         case rank
-        when 'J'
+        when 'Jack'
           11
-        when 'Q'
+        when 'Queen'
           12
-        when 'K'
+        when 'King'
           13  
-        when 'A'
+        when 'Ace'
           options['aces_high'] ? 14 : 1
         end
       end  

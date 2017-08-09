@@ -54,24 +54,24 @@ RSpec.describe SimplePlayingCards::Card do
 
     context 'picture cards' do 
       it 'returns 11 for a jack' do 
-        card = described_class.new('J', 'Diamonds')
+        card = described_class.new('Jack', 'Diamonds')
         expect(card.value).to eql(11)        
       end
 
       it 'returns 12 for a queen' do 
-        card = described_class.new('Q', 'Diamonds')
+        card = described_class.new('Queen', 'Diamonds')
         expect(card.value).to eql(12)        
       end
 
       it 'returns 11 for a jack' do 
-        card = described_class.new('K', 'Diamonds')
+        card = described_class.new('King', 'Diamonds')
         expect(card.value).to eql(13)        
       end
     end
 
     context 'aces high' do
       it 'returns 14 for an ace' do 
-        card = described_class.new('A', 'Diamonds', options)
+        card = described_class.new('Ace', 'Diamonds', options)
         expect(card.value).to eql(14) 
       end
     end 
@@ -79,7 +79,7 @@ RSpec.describe SimplePlayingCards::Card do
     context 'aces low' do 
       it 'returns 1 for an ace' do
         low_options = {'aces_high' => false}
-        card = described_class.new('A', 'Diamonds', low_options)
+        card = described_class.new('Ace', 'Diamonds', low_options)
         expect(card.value).to eql(1) 
       end
     end
